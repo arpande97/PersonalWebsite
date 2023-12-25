@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Featured Post -->
+							<article class="post featured">
+								<header class="major">
+									<span class="date"></span>
+									<h2><a href="#">Here's my computer.</a></h2>
+                                    <a href="#" class="image main"><img src="images/docker.png" alt="" width="50" height="200"/></a>
+
+									<p> When I started working as a software developer, I kept hearing my seniors 
+                                        use the word <i>image</i> in context of deploying the microservices they owned. I could not fathom
+                                        what they meant by it in this context. And that was my first stupid question to them. <i>
+                                            What do you mean by 'the correct image is not getting deployed due to some reason?'
+                                        </i> That was my introduction to docker and images and containers in my development journey.
+
+                                        <p>Think of how developers earlier used to deploy their code. Speaking in terms of Java, they
+                                            would run mvn clean install and generate a war/jar file. They would then take this jar file 
+                                            and deploy it in the production server. Now imagine a very stupid hypothetical scenario where
+                                            when you wrote the code in your machine you used some environment configuration, say, for example,
+                                            Java 17 for the compilation of your code. In production, they sadly use Java 8. What will happen?
+                                            Your code will not compile and run properly. Now imagine 20 other different configurations that 
+                                            are not similar in these two environments. This will lead to a headache for the developer to make
+                                            sure these configurations match. Enter docker. Now instead of telling your customer here's my war 
+                                            file and here's the exact configurations you need to use to make it run, you tell them, "Here's 
+                                            my computer where the code successfully ran." Seems weird but that is what Docker is capable of.
+                                        </p>
+                                        <p>
+                                            Docker is based on the idea of images, a snapshot of the system with the correct configurations
+                                            and files and environment variables to make your program run. If this image is run on a different 
+                                            machine, on a different OS, it won't make a difference because what you are essentially running
+                                            is a computer with already defined configurations and files. You took a snapshot of your computer
+                                            and the code and forwarded this image to someone working on a different machine. Knowing docker is 
+                                            a very essential skill to have because it has become an indispensible tech stack in almost every
+                                            software environment. It's all about images, base images, containers and managing those containers (Openshift/
+                                            Kubernetes).
+                                        </p>
+										<p>
+											So we have four very important terms to keep in mind:
+											<li>
+												<b>Images</b>: snapshot of the computer you want to create. You are 
+												in essence taking a picture of whatever computer you have in mind,
+												along with the storage, directory structure, cpu and so on.
+											</li>
+											<li>
+												<b>Containers:</b> container is the running instance of the image 
+												that you created. Analogous to Java, image is a class while container is an object.
+											</li>
+											<li>
+												<b>Docker daemon:</b> You want some software capable of running these containers and 
+												providing the correct environment. Docker daemon is a server that allows you that 
+												capability. Read about docker desktop if interested and start playing with Docker.
+											</li>
+											<li>
+												<b>Dockerfile:</b> This is the file where you provide instructions to build your own
+												computer. 
+											</li>
+										</p>
+                                        <p>
+                                            Let me explain how Docker manages to achieve all of the above with the dockerfile that I wrote for an 
+                                            application I was working on. Dockerfile is the first step in working with images and containers.
+                                            
+                                        </p>
+										<a href="#" class="image main"><img src="images/dockerfile5.png" alt="" width="100" height="500"/></a>
+                                        <p>
+											The first <b>FROM</b> is the base image. It is like building your own computer.
+											The first question you'll have while building your own computer would probably be,
+											"What kind of OS do I need?". Docker provides you with these base images in their 
+											repositories which will be the skeleton of your computer that you are trying to 
+											create. In my case, I wanted to work with python:3.9 and this is one of the images 
+											that is provided.
+										</p>
+										<p>
+											The next important command is the <b>RUN</b> command. This is like spicing up your
+											computer. You wanted Windows as your OS but now you want to install apps on it. The 
+											RUN command takes care of that. As most of these base images run on top of some
+											Ubuntu/Debian distributions, I used apt-get to install libcap2-bin on my new computer.
+											Created a directory /myapp, added a group and user to work on that directory. You get the idea.
+										</p>
+										<p>
+											The command <b>WORKDIR</b> specifies that all the subsequent commands that will be used 
+											in this dockerfile will run on the directory mentioned in this step. This will
+											be like the home directory for your app.
+										</p>
+										<p>
+											The <b>COPY</b> command has the syntax "COPY source target". So whatever file you want to
+											copy from your local machine into the container will be specified
+											here. In my case, the requirements.txt file that is being used in the flask application will
+											get copied into the container.
+										</p>
+										<p>
+											The next few steps use RUN to change owner of /myapp, give permission to queryService.py to
+											lock the memory (not important for now, it was needed because I was trying to run a 
+											model for text generation and it required memory locking permissions.) and then finally change
+											the user from root to appuser (using <b>USER</b> command).
+										</p>
+										<p>
+											The last important command is the <b>CMD</b> command. There are generally two ways to 
+											specify what you  want the container to do when it comes up using this dockerfile. 
+											<b>ENTRYPOINT</b> tells the container what process to execute and <b>CMD </b>provides the set of arguments
+											to that process. In my case, you will notice ENTRYPOINT is missing. In such cases, the default 
+											<b>/bin/sh -c</b> is executed. The arguments to that will be the ones that I  have provided in 
+											CMD.
+										</p>
+										<p>
+											So just with these few commands we were able to set up an image of our application.
+											There are many more commands and ways to bring up containers and use base images 
+											from the docker hub using docker-cli and docker compose. But almost all tech companies
+											use dockerfiles to create an image of their application and deploy it on different 
+											container management platforms like Elastic Kubernetes Service (EKS, where the control 
+											plane is managed by AWS), or self-managed Kubernetes or Openshift (control plane managed by
+											RedHat). This helps in way more efficient CI/CD pipelines and integrated development. So for 
+											a developer just starting out, it is a good idea to get a good grasp on Docker and the world of
+											images and containers.
+										</p>
+                                    </header>
+								
+							</article>
+
+
+			
+
+					</div>
+
+				
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
