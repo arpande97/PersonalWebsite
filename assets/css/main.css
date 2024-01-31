@@ -3696,7 +3696,6 @@ input, select, textarea {
 			list-style: none;
 			margin-bottom: 0;
 			padding-left: 0;
-			text-transform: uppercase;
 		}
 
 			#nav ul.links li {
@@ -4594,7 +4593,6 @@ input, select, textarea {
 					font-weight: 900;
 					letter-spacing: 0.075em;
 					padding: 0.75rem 0;
-					text-transform: uppercase;
 				}
 
 				#navPanel .links li:first-child {
