@@ -37,7 +37,7 @@
 						<!-- Featured Post -->
 							<article class="post featured">
 								<header class="major">
-									<span class="date">----------</span>
+									<hr>>
 									<h2><a href="#">Something about me.</a></h2>
 									<p>I'm a backend engineer with 1.5 years of experience as a software developer. 
 										I'm currently pursuing a Master's degree in Computer Science from Georgia State University 
@@ -53,47 +53,102 @@
 								</ul>
 								<a href="#" class="image main"><img src="images/me.jpg" alt="" /></a>
 								<hr>
-								<h1>Work Samples</h1>
-									<ul class="actions special">
-										
-									    <li><a href="https://github.com/arpande97/CompressionTool" class="button large">
-											File compression using Huffman encoding/decoding</a></li>
-	
-									</ul>
-
-									<ul class="actions special">
-										
-									    <li><a href="https://github.com/arpande97/DNSResolver/tree/master" class="button large">
-											DNS Resolver</a></li>
-	
-									</ul>
-									<ul class="actions special">
-										
-									    <li><a href="https://github.com/arpande97/SelfWCTool/tree/master" class="button large">
-											Mini - wc-like tool</a></li>
-	
-									</ul>
-									<ul class="actions special">
-										
-									    <li><a href="https://github.com/arpande97/ZST" class="button large">
-											4-approximation algorithm for Zero Skew Trees</a></li>
-	
-									</ul>
-									<ul class="actions special">
-										
-									    <li><a href="https://arpande97.github.io/SortingVisualizer/" class="button large">
-											Sorting Visualizer</a></li>
-	
-									</ul>
-									<ul class="actions special">
-										
-										<li><a href="https://arpande97.github.io/searchalgos/" class="button large">
-											Search Algorithms Visualizer</a></li>
-	
-									</ul>
-							</article>
+								<h1 style="text-align: center;">Work Samples</h1>
+									<section class="posts">
+										<article>
+											<header>
+												
+												<h2 style="text-transform: none;"><a href="#">File Compression using Huffman Encoding</a></h2>
+											</header>
+											<a href="#" class="image fit"><img src="images/huffmanImg.png" alt="" /></a>
+											<p>A file compression tool that using Huffman encoding/decoding, encodes your original file replacing fixed-length encoding of characters with variable-length 
+												encoding. Characters with higher frequency in the text get encoded with fewer bits than standard and bit-packed into 
+												a byte. As a sample test case, a 3.2MB file was compressed into a 2.1MB file. It was a good way to learn about the basic flavour 
+												of compression algorithms.
+											</p>
+											<ul class="actions special">
+												<li><a href="https://github.com/arpande97/CompressionTool" class="button">Github</a></li>
+											</ul>
+										</article>
+										<hr>
+										<article>
+											<header>
+												
+												<h2 style="text-transform: none;"><a href="#">DNS Resolver</a></h2>
+											</header>
+											<a href="#" class="image fit"><img src="images/dnsImage.png" alt="" /></a>
+											<p>Understanding the DNS request/response packets and how authority name servers play a part in resolving the domain name was the 
+												motivation behind this project. It currently handles only 'A' type records and future enhancement will incorporate CNAME records 
+												as well. The easier way to do this would be to just use the InetAddress in Java, but working with individual data packets will 
+												enhance your knowledge about this frequently asked interview question.
+											</p>
+											<ul class="actions special">
+												<li><a href="https://github.com/arpande97/DNSResolver/tree/master" class="button">Github</a></li>
+											</ul>
+										</article>
+										<hr>
+										<article>
+											<header>
+												
+												<h2 style="text-transform: none;"><a href="#">The wc-tool</a></h2>
+											</header>
+											<a href="#" class="image fit"><img src="images/wcImage.jpeg" alt="" /></a>
+											<p>A mini project implementing wc-like tool with the same options as provided by the famous shell command. Refer to 'man' 
+												page of 'wc' to check out the options and use them with this tool.
+											</p>
+											<ul class="actions special">
+												<li><a href="https://github.com/arpande97/SelfWCTool/tree/master" class="button">Github</a></li>
+											</ul>
+										</article>
+										<hr>
+										<article>
+											<header>
+												
+												<h2 style="text-transform: none;"><a href="#">4-approximation algorithm for a minimum zero skew tree</a></h2>
+											</header>
+											<a href="#" class="image fit"><img src="images/zstImage.png" alt="" /></a>
+											<p>The objective was to implement an algorithm for finding zero- or bounded-skew trees of minimum total weight, 
+												since the weight of the tree is directly proportional to the amount of resources required in, for example, bandwidth 
+												and buffers for network multicasting, power and chip area for clock routing in VLSI. The skew of the tree is the maximum 
+												difference between any two root-to-leaf paths. A zero skew would then mean that the distance from any root-to-leaf path 
+												is similar, leading to "zero skew". 
+												This ensures that any clock signal from a source reaches all the nodes at exactly the same time.
+											</p>
+											<ul class="actions special">
+												<li><a href="https://github.com/arpande97/ZST" class="button">Github</a></li>
+											</ul>
+										</article>
+										<hr>
+										<article>
+											<header>
+												
+												<h2 style="text-transform: none;"><a href="#">Sorting Algorithms Visualizer</a></h2>
+											</header>
+											<a href="#" class="image fit"><img src="images/sort.gif" alt="" /></a>
+											<p>A visualization tool to understand the various sorting algorithms.
+											</p>
+											<ul class="actions special">
+												<li><a href="https://arpande97.github.io/SortingVisualizer/" class="button">Demo</a></li>
+											</ul>
+										</article>
+										<hr>
+										<article>
+											<header>
+												
+												<h2 style="text-transform: none;"><a href="#">Search Algorithms Visualizer</a></h2>
+											</header>
+											<a href="#" class="image fit"><img src="images/searchAlgo.png" alt="" /></a>
+											<p>A visualization tool to understand the various search algorithms like BFS, DFS, Djikstra's and A*.
+											</p>
+											<ul class="actions special">
+												<li><a href="https://arpande97.github.io/searchalgos/" class="button">Demo</a></li>
+											</ul>
+										</article>
+									</section>
+									</article>
 
 						<!-- Posts -->
+						<h1 style="text-align: center;">Articles</h1>
 							<section class="posts">
 								<article>
 									<header>
